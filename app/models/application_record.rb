@@ -1,5 +1,6 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
+
   
   def get_profile_image
     unless profile_image.attached?
