@@ -25,7 +25,7 @@
 
 <% @books.each do |book| %>
   <p>画像</p>
-  
+    <%= image_tag book.user.get_profile_image, size:"100x100" %>
   <p>Title</p>
   <span><%= book.title %></span>
   <p>Opinion</p>
