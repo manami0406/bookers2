@@ -20,23 +20,23 @@
     <%= f.text_area :body %>
   <%= f.submit 'Create Book' %>
  <% end %>
+ 
+<h1>Users</h1>
 
-<h1>Books</h1>
-
-<% @books.each do |book| %>
-<table class="books-index">
+<% @users.each do |user| %>
+<table class="user-index">
   <thead>
     <tr>
+      <th>image</th>
+      <th>name</th>
       <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th><%= link_to user_path(@user.id) do %> <%= image_tag book.user.get_profile_image, size:"100x100" %> <% end %></th>
-      <th><%= link_to book_path(book.id) do %> <%= book.title %> <% end %></th>
-      <th><%= book.body %></th>
+      <th><%= image_tag user.get_profile_image, size:"80x80" %></th>
+      <th><%= user.name %></th>
+      <th><%= link_to "Show", user_path(user.id) %></th>
     </tr>
   </tbody>
 </table>
