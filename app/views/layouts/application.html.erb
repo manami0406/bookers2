@@ -6,13 +6,14 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <a href= "/" >Bookers</a>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class= "navbar-brand" href= "/" >Bookers</a>
       <% if user_signed_in? %>
         <li>
           <%= link_to "Home" %>
@@ -40,6 +41,7 @@
           <%= link_to "Log In", new_user_session_path %>
         </li>
       <% end %>
+      </nav>
     </header>
     
     

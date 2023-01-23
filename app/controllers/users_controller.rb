@@ -6,6 +6,11 @@ class UsersController < ApplicationController
     end
     
     def edit
+        is_matching_login_user
+        user_id = params[:id].to_i
+        unless user_id == current_user.id
+            redirect_to users_path
+        end
         @user = User.find(params[:id])
     end
     
@@ -16,7 +21,7 @@ class UsersController < ApplicationController
           redirect_to user_path(@user.id)
         else
           render :edit
-       end
+        end
     end
     
         
