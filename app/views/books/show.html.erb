@@ -16,7 +16,7 @@
         </tbody>
       </table>
       <div class="row">
-        <a class="btn btn-outline-secondary btn-block" href="edit_user_path(@user.id)">
+        <a class="btn btn-outline-secondary btn-block" href="edit_user_path(@user)">
           <i class="fas fa-user-cog"></i>
         </a>
       </div>
@@ -51,13 +51,13 @@
             <td>
               <a classs="btn btn-sm btn-success">
                 <% if @book.user == current_user %>
-                  <%= link_to "Edit", edit_book_path(@book) %>
+                  <%= link_to edit_book_path(@book), class:"btn btn-sm btn-success" do %><%= "Edit" %><% end %>
                 <% end %>
               </a>
             </td>
             <td>
               <% if @book.user == current_user %>
-                <%= link_to "Destroy", book_path(@book), method: :delete,"data-confirm" => "本当に消しますか？" %>
+                <%= link_to book_path(@book), method: :delete,"data-confirm" => "本当に消しますか？", class:"btn btn-sm btn-danger" do %><% "Destroy" %><% end %>
               <% end %>
             </td>
           </tr>

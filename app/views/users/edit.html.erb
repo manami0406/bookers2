@@ -1,20 +1,25 @@
-<h1>User info</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>User info</h1>
+      <% if @user.errors.any? %>
+        <%= @user.errors.count %>error prohibited this obj from being saved:
+          <%@user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+      <% end %>
 
-<% if @user.errors.any? %>
-  <%= @user.errors.count %>error prohibited this obj from being saved:
-    <%@user.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-<% end %>
-
-<%= form_with model: @user do |f| %>
-  <p>Name</p>
-    <%= f.text_field :name, autofocus: true, id:"inputName" %>
-  <p>Image</p>
-    <%= f.file_field :image, placeholder: "inputImage", accept: "image/*" %>
-  <p>Introduction</p>
-    <%= f.text_area :introduction, id:"inputIntroduction" %>
-  <div>
-  <%= f.submit "Update User" %>
+      <%= form_with model: @user do |f| %>
+        <p>Name</p>
+          <%= f.text_field :name, autofocus: true, id:"inputName" %>
+        <p>Image</p>
+          <%= f.file_field :image, placeholder: "inputImage", accept: "image/*" %>
+        <p>Introduction</p>
+          <%= f.text_area :introduction, id:"inputIntroduction" %>
+        <div>
+        <%= f.submit "Update User", class:"btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

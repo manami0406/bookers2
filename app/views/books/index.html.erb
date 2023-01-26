@@ -21,9 +21,7 @@
         </tbody>
       </table>
       <div class="row">
-        <a class="btn btn-outline-secondary btn-block" href="edit_user_path(@user.id)">
-          <i class="fas fa-user-cog"></i>
-        </a>
+        <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %><i class="fas fa-user-cog"></i><% end %>
       </div>
 
       <h1>New Book</h1>
@@ -33,7 +31,7 @@
       <p>Opinion</p>
         <%= f.text_area :body %>
       <div>
-        <%= f.submit 'Create Book' %>
+        <%= f.submit 'Create Book', class:"btn btn-success"%>
       </div>
       <% end %>
     </div>
@@ -41,8 +39,7 @@
     <div class="col-md-8 offset-md-1">
       <h1>Books</h1>
 
-      <% @books.each do |book| %>
-      <table class="books-index">
+      <table class="table">
         <thead>
           <tr>
             <th></th>
@@ -50,15 +47,16 @@
             <th>Opinion</th>
           </tr>
         </thead>
+        <% @books.each do |book| %>
         <tbody>
           <tr>
-            <th><%= link_to user_path(@user.id) do %> <%= image_tag book.user.get_profile_image, size:"100x100" %> <% end %></th>
+            <th><%= link_to user_path(@user.id) do %> <%= image_tag book.user.get_profile_image, size:"80x80" %> <% end %></th>
             <th><%= link_to book_path(book.id) do %> <%= book.title %> <% end %></th>
             <th><%= book.body %></th>
           </tr>
         </tbody>
+        <% end %>
       </table>
-      <% end %>
     </div>
   </div>
 </div>

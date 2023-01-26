@@ -22,30 +22,46 @@
           <div class="collapse navbar-collapse" id="navbarNavDoropdown">
             <ul class="navbar-nav navbar-brand ml-auto">
             <% if user_signed_in? %>
-            <li class="nav-link text-light">
-              <%= link_to "Home", user_path(current_user.id) %>
+            <li class="nav-link">
+              <%= link_to user_path(current_user.id), class:"text-light" do %>
+              <i class="fas fa-home", style="color: #ffffff"></i>
+              <%= "Home" %><% end %>
             </li>
-            <li class="nav-link text-light">
-              <%= link_to "Users", users_path %>
+            <li class="nav-link">
+              <%= link_to users_path, class:"text-light" do %>
+              <i class="fas fa-users"></i>
+              <%= "Users" %><% end %>
             </li>
-            <li class="nav-link text-light">
-              <%= link_to "Books", books_path %>
+            <li class="nav-link">
+              <%= link_to books_path, class:"text-light" do %>
+              <i class="fas fa-book-open"></i>
+              <%= "Books" %><% end %>
             </li>
-            <li class="nav-link text-light">
-              <%= link_to "Log Out", destroy_user_session_path,method: :delete %>
+            <li class="nav-link">
+              <%= link_to destroy_user_session_path,method: :delete, class:"text-light" do %>
+              <i class="fas fa-sign-out-alt"></i>
+              <%= "Log Out" %><% end %>
              </li>
             <% else %>
-            <li class="nav-link text-light">
-              <%= link_to "Home", root_path %>
+            <li class="nav-link">
+              <%= link_to root_path, class:"text-light" do %>
+              <i class="fas fa-home", style="color: #ffffff"></i>
+              <%= "Home" %><% end %>
             </li>
-            <li class="nav-link text-light">
-              <%= link_to "About", homes_path %>
+            <li class="nav-link">
+              <%= link_to homes_path, class:"text-light" do %>
+              <i class="fas fa-link"></i>
+              <%= "About" %><% end %>
             </li>
-            <li class="nav-link text-light">
-              <%= link_to "Sign Up", new_user_registration_path %>
+            <li class="nav-link">
+              <%= link_to new_user_registration_path, class:"text-light" do %>
+              <i class="fas fa-user-plus"></i>
+              <%= "Sign Up" %><% end %>
             </li>
-            <li class="nav-link text-light">
-              <%= link_to "Log In", new_user_session_path %>
+            <li class="nav-link">
+              <%= link_to new_user_session_path, class:"text-light" do %>
+              <i class="fas fa-sign-in-alt"></i>
+              <%= "Log In" %><% end %>
             </li>
             <% end %>
             </ul>
