@@ -1,22 +1,22 @@
   <div class="col-md-3">
       <h1>User info</h1>
-        <%= image_tag @user.get_profile_image, size:"100x100" %>
+        <%= image_tag user.get_profile_image, size:"100x100" %>
       <table class="table">
         <tbody>
           <tr>
-            <th>name</th><td><%= @user.name %></td>
+            <th>name</th><td><%= user.name %></td>
           </tr>
           <tr>
-            <th>introduction</th><td><%= @user.introduction %></td>
+            <th>introduction</th><td><%= user.introduction %></td>
           </tr>
         </tbody>
       </table>
       <div class="row">
-        <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %><i class="fas fa-user-cog"></i><% end %>
+        <%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block" do %><i class="fas fa-user-cog"></i><% end %>
       </div>
 
       <h1>New Book</h1>
-        <%= form_with model: @book do |f| %>
+        <%= form_with model: book do |f| %>
       <p>Title</p>
         <%= f.text_field :title %>
       <p>Opinion</p>
